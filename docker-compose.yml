@@ -31,7 +31,8 @@ services:
       MYSQL_USER: root
       MYSQL_PASSWORD: password
       HOSTNAME: db
-
+        # Pra rodar no Mac M1
+      platform: linux/amd64
   # Serviço que irá rodar o banco de dados
   db:
     container_name: all_for_one_db
@@ -44,6 +45,8 @@ services:
       - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: password
+    # Para rodar no Mac M1
+    platform: linux/amd64
 
 # Lista de redes que os containeres irão utilizar
 networks:
